@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_16_080802) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_16_133604) do
   create_table "profiles", force: :cascade do |t|
     t.string "employee_name"
     t.string "department"
@@ -26,6 +26,22 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_16_080802) do
     t.index ["user_id"], name: "index_profiles_on_user_id"
   end
 
+  create_table "projects", force: :cascade do |t|
+    t.string "p_name"
+    t.date "start_date"
+    t.date "end_date"
+    t.string "tech"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "projects_users", id: false, force: :cascade do |t|
+    t.integer "user_id", null: false
+    t.integer "project_id", null: false
+    t.index ["project_id", "user_id"], name: "index_projects_users_on_project_id_and_user_id"
+    t.index ["user_id", "project_id"], name: "index_projects_users_on_user_id_and_project_id"
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "ip_address"
@@ -33,6 +49,18 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_16_080802) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_sessions_on_user_id"
+  end
+
+  create_table "tasks", force: :cascade do |t|
+    t.string "title"
+    t.text "description"
+    t.string "status"
+    t.integer "project_id", null: false
+    t.integer "assigned_user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["assigned_user_id"], name: "index_tasks_on_assigned_user_id"
+    t.index ["project_id"], name: "index_tasks_on_project_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -45,4 +73,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_16_080802) do
 
   add_foreign_key "profiles", "users"
   add_foreign_key "sessions", "users"
+  add_foreign_key "tasks", "projects"
+  add_foreign_key "tasks", "users", column: "assigned_user_id"
 end
