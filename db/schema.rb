@@ -10,7 +10,22 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_15_083730) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_16_080802) do
+  create_table "profiles", force: :cascade do |t|
+    t.string "employee_name"
+    t.string "department"
+    t.string "job_title"
+    t.string "phone_number"
+    t.string "city"
+    t.string "father_name"
+    t.string "mother_name"
+    t.string "acount_number"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_profiles_on_user_id"
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "ip_address"
@@ -28,5 +43,6 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_15_083730) do
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
+  add_foreign_key "profiles", "users"
   add_foreign_key "sessions", "users"
 end

@@ -1,0 +1,94 @@
+<%=render 'shared/usernav'%>
+
+<div class="p-5 bg-blue-200">
+<div class="max-w-7xl mx-auto">
+    <div class="flex  items-center  justify-center gap-5">
+        <div class="flex flex-col gap-5">
+            <div class="w-[500px]">
+            <div tabindex="0" class="collapse collapse-arrow bg-base-100 border-base-300 border">
+            <div class="collapse-title font-semibold">Personal Details</div>
+            <div class="collapse-content text-sm">
+                <p>Name : <%=@profile.employee_name%></p>
+                <p>Email : <%=@profile.user.email_address%></p>
+                <p>Password : <%=@profile.user.password%></p>
+                <p>Mobile Number : <%=@profile.phone_number%></p>
+            </div>
+            </div>
+        </div>
+        <div class="w-[500px]">
+            <div tabindex="0" class="collapse collapse-arrow bg-base-100 border-base-300 border">
+            <div class="collapse-title font-semibold">Family Details</div>
+            <div class="collapse-content text-sm">
+                <p>Father Name : <%=@profile.father_name%></p>
+                <p>Mother Name : <%=@profile.mother_name%></p>
+            </div>
+            </div>
+        </div>
+        <div class="w-[500px]">
+            <div tabindex="0" class="collapse collapse-arrow bg-base-100 border-base-300 border">
+            <div class="collapse-title font-semibold">Address Details</div>
+            <div class="collapse-content text-sm">
+                <p>Address : <%=@profile.city%></p>
+            </div>
+            </div>
+        </div>
+        <div class="w-[500px]">
+            <div tabindex="0" class="collapse collapse-arrow bg-base-100 border-base-300 border">
+            <div class="collapse-title font-semibold">Financial Details</div>
+            <div class="collapse-content text-sm">
+                <p>Account : <%=@profile.acount_number%></p>
+            </div>
+            </div>
+        </div>
+        </div>
+
+
+        <div>
+            <div class="bg-white p-8 rounded-xl shadow-lg w-full max-w-lg border-2 border-blue-400 relative">
+        <!-- Edit icon at top right -->
+        <div class="absolute top-4 right-4 flex items-center text-gray-600 text-sm">
+            <i class="fas fa-edit mr-1"></i>
+            <span>Edit</span>
+        </div>
+
+        <!-- Profile Picture Section -->
+        <div class="flex flex-col items-center mb-8 mt-4">
+            <div class="w-28 h-28 bg-yellow-400 rounded-full flex items-center justify-center overflow-hidden border-4 border-blue-300">
+                <!-- Placeholder for the person icon or actual image -->
+                <!-- Using a simple SVG as an example for the user avatar -->
+                <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" class="w-full h-full text-blue-800">
+                    <circle cx="50" cy="50" r="45" fill="#FACC15"/> <!-- Yellow circle -->
+                    <circle cx="50" cy="35" r="15" fill="#3B82F6"/> <!-- Head (blue) -->
+                    <path d="M25 75 C 30 60, 70 60, 75 75 Z" fill="#3B82F6"/> <!-- Body (blue) -->
+                    <rect x="40" y="45" width="20" height="10" rx="3" ry="3" fill="#6B4226"/> <!-- Beard area -->
+                    <circle cx="43" cy="30" r="3" fill="#000"/> <!-- Left eye -->
+                    <circle cx="57" cy="30" r="3" fill="#000"/> <!-- Right eye -->
+                    <path d="M45 40 Q 50 45, 55 40" stroke="#000" stroke-width="2" fill="none"/> <!-- Mouth -->
+                </svg>
+            </div>
+            <p class="text-gray-500 text-sm mt-4">Employee Name</p>
+            <h2 class="text-2xl font-semibold text-gray-800"><%=@profile.employee_name%></h2>
+        </div>
+
+        <!-- Department Section -->
+        <div class="text-center mb-8">
+            <p class="text-gray-500 text-sm">Department</p>
+            <h3 class="text-xl font-semibold text-gray-800"><%=@profile.department%></h3>
+        </div>
+
+        <!-- Job Details Section -->
+        <div class="flex justify-between items-start space-x-4">
+            <div class="flex-1 text-center">
+                <p class="text-gray-500 text-sm">Job Title</p>
+                <h3 class="text-xl font-semibold text-gray-800"><%=@profile.job_title%></h3>
+            </div>
+            <div class="flex-1 text-center">
+                <p class="text-gray-500 text-sm">Job Category</p>
+                <h3 class="text-xl font-semibold text-gray-800">Full time</h3>
+            </div>
+        </div>
+    </div>
+        </div>
+    </div>
+</div>
+</div>
