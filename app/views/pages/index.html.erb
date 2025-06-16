@@ -1,0 +1,155 @@
+<%=render 'shared/usernav'%>
+<div class="p-5 bg-blue-200">
+
+
+<div class="max-w-7xl mx-auto">
+        <!-- Dashboard Header -->
+        <h1 class="text-2xl font-bold text-gray-800 mb-6">Dashboard</h1>
+
+        <!-- Profile Section -->
+        <div class="bg-blue-800 text-white p-6 rounded-lg shadow-md flex items-center justify-between relative overflow-hidden mb-8">
+            <div class="flex items-center">
+                <!-- User Avatar -->
+                <div class="w-16 h-16 bg-white rounded-full flex items-center justify-center mr-4">
+                    <img src="https://placehold.co/64x64/E0E0E0/808080?text=👤" alt="User Avatar" class="rounded-full">
+                </div>
+                <div>
+                    <h2 class="text-xl font-semibold">Redwan Husein</h2>
+                    <p class="text-blue-200">UI/UX Designer & UX Writer</p>
+                </div>
+            </div>
+            <!-- Edit Profile Button -->
+            <button class="bg-yellow-400 text-blue-900 font-bold py-2 px-4 rounded-full shadow-lg hover:bg-yellow-300 transition duration-300">
+                Edit Profile
+            </button>
+            <!-- Decorative Element (Paper Plane) -->
+            <div class="absolute top-0 right-0 -mr-10 -mt-10">
+                <svg class="w-32 h-32 text-blue-700 opacity-20 transform rotate-45" fill="currentColor" viewBox="0 0 24 24">
+                    <path d="M2.01 21L23 12 2.01 3 2 10l15 2-15 2z"></path>
+                </svg>
+            </div>
+        </div>
+
+        <!-- Quick Actions Section -->
+        <div class="mb-8">
+            <h3 class="text-xl font-semibold text-gray-800 mb-4">Quick Actions</h3>
+            <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-4">
+                <button class="bg-white py-3 px-4 rounded-lg shadow-md text-gray-700 font-medium hover:bg-gray-200 transition duration-300">
+                    Apply for Leave
+                </button>
+                <button class="bg-white py-3 px-4 rounded-lg shadow-md text-gray-700 font-medium hover:bg-gray-200 transition duration-300">
+                    KPI Goals
+                </button>
+                <button class="bg-white py-3 px-4 rounded-lg shadow-md text-gray-700 font-medium hover:bg-gray-200 transition duration-300">
+                    Take Appraisal
+                </button>
+                <button class="bg-white py-3 px-4 rounded-lg shadow-md text-gray-700 font-medium hover:bg-gray-200 transition duration-300">
+                    View Payslip
+                </button>
+                <button class="bg-white py-3 px-4 rounded-lg shadow-md text-gray-700 font-medium hover:bg-gray-200 transition duration-300">
+                    Update Profile
+                </button>
+                <button class="bg-white py-3 px-4 rounded-lg shadow-md text-gray-700 font-medium hover:bg-gray-200 transition duration-300">
+                    Events
+                </button>
+            </div>
+        </div>
+
+        <!-- Available Leave Days & To-dos Section -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+            <!-- Available Leave Days Card -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-semibold text-gray-800">Available Leave Days</h3>
+                    <button class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                </div>
+                <div class="mb-4">
+                    <p class="text-gray-700 mb-2">Annual Leave</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="bg-blue-600 h-2.5 rounded-full" style="width: 16.66%;"></div> <!-- 10/60 = 16.66% -->
+                    </div>
+                    <p class="text-sm text-gray-500 mt-1">10 of 60 day(s)</p>
+                </div>
+                <div class="mb-4">
+                    <p class="text-gray-700 mb-2">Sick Leave</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="bg-blue-600 h-2.5 rounded-full" style="width: 0%;"></div> <!-- 0/10 = 0% -->
+                    </div>
+                    <p class="text-sm text-gray-500 mt-1">0 of 10 day(s)</p>
+                </div>
+                <div>
+                    <p class="text-gray-700 mb-2">Compassionate Leave</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="bg-blue-600 h-2.5 rounded-full" style="width: 53.33%;"></div> <!-- 8/15 = 53.33% -->
+                    </div>
+                    <p class="text-sm text-gray-500 mt-1">8 of 15 day(s)</p>
+                </div>
+            </div>
+
+            <!-- To-dos Card -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-semibold text-gray-800">To-dos</h3>
+                    <button class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between bg-gray-50 p-3 rounded-md">
+                        <p class="text-gray-700">Complete Onboarding Document Upload</p>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </div>
+                    <div class="flex items-center justify-between bg-gray-50 p-3 rounded-md">
+                        <p class="text-gray-700">Follow up on clients on documents</p>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </div>
+                    <div class="flex items-center justify-between bg-gray-50 p-3 rounded-md">
+                        <p class="text-gray-700">Design wireframes for LMS</p>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </div>
+                    <div class="flex items-center justify-between bg-gray-50 p-3 rounded-md">
+                        <p class="text-gray-700">Create case study for next IT project</p>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </div>
+                    <div class="flex items-center justify-between bg-gray-50 p-3 rounded-md">
+                        <p class="text-gray-700">Follow up on clients on documents</p>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+            <!-- Announcement  Card -->
+            <div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-semibold text-gray-800">Announcement</h3>
+                    <button class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                </div>
+                <div class="space-y-3">
+                    <div class="flex items-center justify-between bg-gray-50 p-3 rounded-md">
+                        <p class="text-gray-700">Complete Onboarding Document Upload</p>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </div>
+                    <div class="flex items-center justify-between bg-gray-50 p-3 rounded-md">
+                        <p class="text-gray-700">Follow up on clients on documents</p>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </div>
+                    <div class="flex items-center justify-between bg-gray-50 p-3 rounded-md">
+                        <p class="text-gray-700">Design wireframes for LMS</p>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </div>
+                    <div class="flex items-center justify-between bg-gray-50 p-3 rounded-md">
+                        <p class="text-gray-700">Create case study for next IT project</p>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </div>
+                    <div class="flex items-center justify-between bg-gray-50 p-3 rounded-md">
+                        <p class="text-gray-700">Follow up on clients on documents</p>
+                        <i class="fas fa-chevron-down text-gray-400"></i>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+</div>

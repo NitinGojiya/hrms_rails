@@ -1,0 +1,66 @@
+<div class="navbar bg-base-100 shadow-sm p-5">
+  <div class="navbar-start">
+    <div class="dropdown">
+      <div tabindex="0" role="button" class="btn btn-ghost lg:hidden">
+        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+          <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h8m-8 6h16" />
+        </svg>
+      </div>
+      <ul tabindex="0" class="menu menu-sm dropdown-content bg-base-100 rounded-box z-1 mt-3 w-52 p-2 shadow">
+        <li><a>Item 1</a></li>
+      </ul>
+    </div>
+    <a class="btn btn-ghost text-xl">HRMS</a>
+  </div>
+  <div class="navbar-center hidden lg:flex">
+    <ul class="flex gap-5 p-2">
+      <li class="border-b-4 border-transparent hover:border-yellow-500 p-2 transition duration-300">
+        <a href="#" class="text-gray-700 hover:text-gray-900 font-medium">Dashboard</a>
+      </li>
+      <li class="border-b-4 border-transparent hover:border-yellow-500 p-2 transition duration-300">
+        <a href="#" class="text-gray-700 hover:text-gray-900 font-medium">Request</a>
+      </li>
+      <li class="border-b-4 border-transparent hover:border-yellow-500 p-2 transition duration-300">
+        <a href="#" class="text-gray-700 hover:text-gray-900 font-medium">Payroll</a>
+      </li>
+      <li class="border-b-4 border-transparent hover:border-yellow-500 p-2 transition duration-300">
+        <a href="#" class="text-gray-700 hover:text-gray-900 font-medium">Company</a>
+      </li>
+      <li class="border-b-4 border-transparent hover:border-yellow-500 p-2 transition duration-300">
+        <a href="#" class="text-gray-700 hover:text-gray-900 font-medium">Extas</a>
+      </li>
+    </ul>
+  </div>
+  <div class="navbar-end gap-1">
+    <button
+      class="relative bg-blue-700 w-12 h-12 rounded-full flex items-center justify-center shadow-md hover:bg-blue-600 focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-opacity-75 transition duration-300">
+      <i class="fas fa-bell text-white text-xl"></i>
+      <!-- Notification Badge -->
+      <span class="absolute top-0 right-0 -mt-1 -mr-1 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+        12
+      </span>
+    </button>
+    <button
+      class="relative bg-green-600 w-12 h-12 rounded-full flex items-center justify-center shadow-md hover:bg-green-500 focus:outline-none focus:ring-2 focus:bg-green-500 focus:ring-opacity-75 transition duration-300">
+      <i class="fa-solid fa-envelope text-white text-xl"></i>
+      <!-- Notification Badge -->
+      <span class="absolute top-0 right-0 -mt-1 -mr-1 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+        12
+      </span>
+    </button>
+    <button
+      class="relative bg-yellow-500 w-12 h-12 rounded-full flex items-center justify-center shadow-md hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:bg-yellow-400 focus:ring-opacity-75 transition duration-300">
+      <i class="fa-solid fa-user-tie text-white text-xl"></i>
+      <!-- Notification Badge -->
+      <span class="absolute top-0 right-0 -mt-1 -mr-1 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded-full">
+        12
+      </span>
+    </button>
+   <% if authenticated? %>
+  <%= button_to session_path, method: :delete, class: "bg-red-500 w-12 h-12 rounded-full flex items-center justify-center shadow-md hover:bg-red-400 focus:outline-none focus:ring-2 focus:bg-red-400 focus:ring-opacity-75 transition duration-300" do %>
+    <i class="fas fa-sign-out-alt text-white text-xl"></i>
+  <% end %>
+<% end %>
+
+  </div>
+</div>
