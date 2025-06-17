@@ -1,0 +1,37 @@
+
+ <%= form_with do |form| %>
+<div class="flex flex-col gap-4 items-center justify-center">
+    <div class="flex gap-4">
+    <div>
+     <%=form.text_field:employee_name,class:"input input-neutral w-sm" ,placeholder:"Full Name"%>
+    </div>
+    <div>
+     <%=form.text_field:phone_number,class:"input input-neutral w-sm" ,placeholder:"Phone Number"%>
+    </div>
+    </div>
+     <div class="flex gap-4">
+        <div>
+        <%=form.text_field:department,class:"input input-neutral w-sm" ,placeholder:"Department"%>
+        </div>
+        <div>
+        <%=form.text_field:job_title,class:"input input-neutral w-sm" ,placeholder:"Job Title"%>
+        </div>
+    </div>
+    <div class="flex gap-4">
+        <div>
+        <%=form.text_field:father_name,class:"input input-neutral w-sm" ,placeholder:"Father Name"%>
+        </div>
+        <div>
+        <%=form.text_field:mother_name,class:"input input-neutral w-sm" ,placeholder:"Mother Name"%>
+        </div>
+    </div>
+
+    <div class="flex gap-4">
+        <%=form.submit class:"btn btn-success"%>
+    </div>
+</div>
+
+
+</div>
+</div>
+<%end%>

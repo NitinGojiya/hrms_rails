@@ -1,0 +1,52 @@
+
+ <% total_leave = @accept_leave.sum { |leave| (leave.end_date - leave.start_date).to_i }
+    per = (total_leave * 100) / 60
+    total_c_leave = @casual_leave.sum { |leave| (leave.end_date - leave.start_date).to_i }
+    c_per = (total_c_leave  * 100)/15
+    total_s_leave = @sick_leave.sum { |leave| (leave.end_date - leave.start_date).to_i }
+    s_per = (total_s_leave  * 100)/10
+ %>
+<div class="bg-white p-6 rounded-lg shadow-md">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-semibold text-gray-800">Available Leave Days</h3>
+                    <button class="text-gray-500 hover:text-gray-700">
+                        <i class="fas fa-ellipsis-v"></i>
+                    </button>
+                </div>
+                <div class="mb-4 flex gap-2">
+                    <div>
+                    <p class="text-black mb-2">Total Applied Leave</p>
+                    <p class="text-sm text-black mt-1"><%=@user.leaves.count%></p>
+                    </div>
+                    <div class="border-l-4 border-black pl-5">
+                    <p class="text-black mb-2">Total Accept Leave</p>
+                    <p class="text-sm text-black mt-1"><%=@user.leaves.accept.count%></p>
+                    </div>
+
+                </div>
+                <div class="mb-4">
+                    <p class="text-gray-700 mb-2">Annual Leave</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="bg-blue-600 h-2.5 rounded-full" style="width: <%= "#{per}%" %>"></div> <!-- 10/60 = 16.66% -->
+                    </div>
+                    <p class="text-sm text-gray-500 mt-1"><%=total_leave%> of 60 day(s)</p>
+                </div>
+
+                <div>
+
+            </div>
+                <div class="mb-4">
+                    <p class="text-gray-700 mb-2">Sick Leave</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="bg-blue-600 h-2.5 rounded-full" style="width:<%= "#{s_per}%"%>"></div> <!-- 0/10 = 0% -->
+                    </div>
+                    <p class="text-sm text-gray-500 mt-1"><%=total_s_leave%> of 10 day(s)</p>
+                </div>
+                <div>
+                    <p class="text-gray-700 mb-2">Casual Leave</p>
+                    <div class="w-full bg-gray-200 rounded-full h-2.5">
+                        <div class="bg-blue-600 h-2.5 rounded-full" style="width: <%= "#{c_per}%" %>"></div> <!-- 8/15 = 53.33% -->
+                    </div>
+                    <p class="text-sm text-gray-500 mt-1"><%=total_c_leave%> of 15 day(s)</p>
+                </div>
+            </div>

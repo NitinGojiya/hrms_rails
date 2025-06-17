@@ -10,7 +10,29 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_16_133604) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_17_102202) do
+  create_table "leave_deatils", force: :cascade do |t|
+    t.string "employee_type"
+    t.integer "sick_leave"
+    t.integer "casual_leave"
+    t.integer "emergency_leave"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "leaves", force: :cascade do |t|
+    t.string "leavetype"
+    t.string "subject"
+    t.string "description"
+    t.date "start_date"
+    t.date "end_date"
+    t.integer "user_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.string "status", default: "pending"
+    t.index ["user_id"], name: "index_leaves_on_user_id"
+  end
+
   create_table "profiles", force: :cascade do |t|
     t.string "employee_name"
     t.string "department"
@@ -71,6 +93,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_16_133604) do
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
+  add_foreign_key "leaves", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "sessions", "users"
   add_foreign_key "tasks", "projects"

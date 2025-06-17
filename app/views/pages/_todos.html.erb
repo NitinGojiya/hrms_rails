@@ -1,0 +1,18 @@
+
+  <% status_color = {
+    'pending' => 'text-red-500',
+    'process' => 'text-yellow-500',
+    'completed' => 'text-green-500'
+  }[todos.status] || '' %>
+
+  <div tabindex="0" class="collapse collapse-arrow bg-base-100 border-base-300 border">
+    <div class="collapse-title font-semibold <%= status_color %>">
+      <%= todos.title %>
+    </div>
+    <div class="collapse-content text-sm">
+      <p>Description: <%= todos.description %></p>
+      <p>Status: <%= todos.status %></p>
+      <p>Project: <%= todos.project.p_name %></p>
+    </div>
+  </div>
+
