@@ -61,14 +61,11 @@
         12
       </span>
     </button>
-    <button
-      class="relative bg-yellow-500 w-12 h-12 rounded-full flex items-center justify-center shadow-md hover:bg-yellow-400 focus:outline-none focus:ring-2 focus:bg-yellow-400 focus:ring-opacity-75 transition duration-300">
-      <i class="fa-solid fa-user-tie text-white text-xl"></i>
-      <!-- Notification Badge -->
-      <span class="absolute top-0 right-0 -mt-1 -mr-1 bg-red-600 text-white text-xs font-bold px-2 py-0.5 rounded-full">
-        12
-      </span>
+
+    <button>
+      <%= render 'shared/chat'%>
     </button>
+
    <% if authenticated? %>
   <%= button_to session_path, method: :delete, class: "bg-red-500 w-12 h-12 rounded-full flex items-center justify-center shadow-md hover:bg-red-400 focus:outline-none focus:ring-2 focus:bg-red-400 focus:ring-opacity-75 transition duration-300" do %>
     <i class="fas fa-sign-out-alt text-white text-xl"></i>

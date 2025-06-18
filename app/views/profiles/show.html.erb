@@ -50,14 +50,14 @@
 
         <%if @user.profile.present? %>
         <div class="absolute top-4 right-4 flex items-center text-gray-600 text-sm">
-            <%=link_to new_profile_path do %>
+            <%=link_to '/profiles/edit' do %>
             <i class="fas fa-edit mr-1"></i>
             <span>update</span>
             <%end%>
         </div>
         <%else%>
          <div class="absolute top-4 right-4 flex items-center text-gray-600 text-sm">
-            <%=link_to new_profile_path do %>
+            <%=link_to new_profiles_path do %>
             <i class="fas fa-edit mr-1"></i>
             <span>Edit</span>
             <%end%>

@@ -19,14 +19,15 @@
 
                     <div class="w-[500px]">
                     <fieldset class="fieldset text-2xl">
-                        <legend class="fieldset-legend">Email Address</legend>
+                        <legend class="fieldset-legend">Email Address <%if @user.errors[:email_address].present? %><span class=" text-xl text-red-500">*enter valid email</span><%end%></legend>
                         <!-- <input type="text" class="input input-info" placeholder="Type here" /> -->
                         <%= form.text_field :email_address, class: "input input-info" ,placeholder: "Enter your email address" %>
                     </fieldset>
                     </div>
+
                     <div class="w-[500px]">
                     <fieldset class="fieldset text-2xl">
-                        <legend class="fieldset-legend">Password</legend>
+                        <legend class="fieldset-legend">Password<%if @user.errors[:password].present? %><span class=" text-xl text-red-500">*enter 8 min character password</span><%end%></legend>
                         <!-- <input type="text" class="input input-info" placeholder="Type here" /> -->
                         <%= form.text_field :password, class: "input input-info h-[40px]" ,placeholder: "Enter your password" %>
                     </fieldset>

@@ -3,6 +3,7 @@ class PagesController < ApplicationController
   def index
     @session = Current.session
     @user = @session.user
+    @profile = @user.profile
     @todos = @user.assigned_tasks.order(created_at: :desc)
     @todos = Array(@todos)
     @casual_leave = @user.leaves.casual

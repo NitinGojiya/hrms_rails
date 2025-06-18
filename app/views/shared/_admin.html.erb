@@ -1,0 +1,127 @@
+ <!-- Sidebar -->
+    <aside class="sidebar bg-[#1a202c] text-white w-64 flex-shrink-0 p-4 overflow-y-auto shadow-lg
+                  transform -translate-x-full md:translate-x-0 transition-transform duration-300 ease-in-out"
+           id="sidebar">
+        <!-- Sidebar Header -->
+        <div class="flex items-center justify-center mb-6 py-4 border-b border-gray-700">
+            <img src="https://placehold.co/40x40/ffffff/000000?text=X" alt="XCELTECH Logo" class="h-10 w-10 mr-2 rounded-full">
+            <h1 class="text-2xl font-bold text-gray-100">HRMS</h1>
+        </div>
+
+        <!-- User Profile Section -->
+        <div class="flex items-center mb-6 p-4 bg-gray-800 rounded-lg shadow-md">
+            <img src="https://placehold.co/64x64/FFD700/000000?text=AD" alt="Aman Admin Profile" class="w-16 h-16 rounded-full border-2 border-yellow-400 mr-4">
+            <div>
+                <h2 class="text-lg font-semibold text-gray-100">Aman Admin</h2>
+                <p class="text-sm text-gray-400">Admin</p>
+            </div>
+        </div>
+
+        <!-- Navigation Sections -->
+        <nav class="space-y-4">
+            <!-- Features Section -->
+            <div>
+                <h3 class="text-xs uppercase text-gray-400 font-semibold mb-2 ml-4">Features</h3>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#" class="flex items-center p-3 rounded-lg bg-yellow-500 text-gray-900 font-semibold shadow-md transition-all duration-200 hover:bg-yellow-600">
+                            <i class="fas fa-th-large w-6 h-6 mr-3 text-gray-900"></i>
+                            Dashboard
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 rounded-lg text-gray-200 hover:bg-gray-700 transition-all duration-200">
+                            <i class="fas fa-envelope w-6 h-6 mr-3"></i>
+                            Messages
+                            <span class="ml-auto bg-red-600 text-white text-xs font-bold px-2 py-1 rounded-full">13</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Recruitment Section -->
+            <div>
+                <h3 class="text-xs uppercase text-gray-400 font-semibold mb-2 ml-4">Recruitment</h3>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#" class="flex items-center p-3 rounded-lg text-gray-200 hover:bg-gray-700 transition-all duration-200">
+                            <i class="fas fa-briefcase w-6 h-6 mr-3"></i>
+                            Jobs
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 rounded-lg text-gray-200 hover:bg-gray-700 transition-all duration-200">
+                            <i class="fas fa-users w-6 h-6 mr-3"></i>
+                            Candidates
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 rounded-lg text-gray-200 hover:bg-gray-700 transition-all duration-200">
+                            <i class="fas fa-file-alt w-6 h-6 mr-3"></i>
+                            Resumes
+                        </a>
+                    </li>
+                </ul>
+            </div>
+
+            <!-- Organization Section -->
+            <div>
+                <h3 class="text-xs uppercase text-gray-400 font-semibold mb-2 ml-4">Organization</h3>
+                <ul class="space-y-2">
+                    <li>
+                        <a href="#" class="flex items-center p-3 rounded-lg text-gray-200 hover:bg-gray-700 transition-all duration-200">
+                            <i class="fas fa-user-tie w-6 h-6 mr-3"></i>
+                            Employee Management
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 rounded-lg text-gray-200 hover:bg-gray-700 transition-all duration-200">
+                            <i class="fas fa-calendar-alt w-6 h-6 mr-3"></i>
+                            Leave Management
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 rounded-lg text-gray-200 hover:bg-gray-700 transition-all duration-200">
+                            <i class="fas fa-balance-scale w-6 h-6 mr-3"></i>
+                            Performance Management
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#" class="flex items-center p-3 rounded-lg text-gray-200 hover:bg-gray-700 transition-all duration-200">
+                            <i class="fas fa-money-bill-wave w-6 h-6 mr-3"></i>
+                            Payroll Management
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <!-- Spacer for content above logout button -->
+        <div class="flex-grow"></div>
+
+        <!-- Logout Button -->
+        <div class="mt-8 pt-4 border-t border-gray-700">
+            <button class="w-full flex items-center justify-center p-3 rounded-lg bg-red-600 text-white font-semibold shadow-lg hover:bg-red-700 transition-all duration-200">
+                <i class="fas fa-sign-out-alt w-6 h-6 mr-2"></i>
+                Log Out
+            </button>
+        </div>
+    </aside>
+
+
+
+    <script>
+        const sidebarToggle = document.getElementById('sidebar-toggle');
+        const sidebar = document.getElementById('sidebar');
+
+        sidebarToggle.addEventListener('click', () => {
+            sidebar.classList.toggle('-translate-x-full');
+        });
+
+        // Close sidebar when clicking outside on mobile
+        document.addEventListener('click', (event) => {
+            if (window.innerWidth < 768 && !sidebar.contains(event.target) && !sidebarToggle.contains(event.target)) {
+                sidebar.classList.add('-translate-x-full');
+            }
+        });
+    </script>
