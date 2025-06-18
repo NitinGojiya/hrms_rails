@@ -20,6 +20,18 @@ class LeavesController < ApplicationController
     end
   end
 
+  def accept
+    leave = Leafe.find(params[:id])
+    case params[:decision]
+    when "approve"
+      leave.update(status: "accept")
+    when "decline"
+      leave.update(status: "decline")
+    end
+
+    redirect_back fallback_location: "/admins/leave", notice: "Leave #{leave.status}"
+  end
+
   private
 
   def leave_params

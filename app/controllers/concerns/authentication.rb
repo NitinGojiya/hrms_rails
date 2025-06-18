@@ -35,7 +35,8 @@ module Authentication
     end
 
     def after_authentication_url
-      session.delete(:return_to_after_authenticating) || root_url
+      user = Current.session.user
+      session.delete(:return_to_after_authenticating) || (user.role == 1 ? root_url+"admins/dashboard" : root_url)
     end
 
     def start_new_session_for(user)
@@ -48,5 +49,18 @@ module Authentication
     def terminate_session
       Current.session.destroy
       cookies.delete(:session_id)
+    end
+
+    # custome auth
+    def require_admin!
+      unless Current.session.user.role == 1
+        redirect_to request.url, alert: "Admins only!"
+      end
+    end
+
+    def require_user!
+      unless Current.session.user.role == 0
+        redirect_to request.url, alert: "Users only!"
+      end
     end
 end

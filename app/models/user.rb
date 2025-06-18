@@ -1,5 +1,7 @@
 class User < ApplicationRecord
   has_secure_password
+  scope :admin, -> { where(role: 1) }
+  scope :user, -> { where(role: 0) }
   has_many :sessions, dependent: :destroy
   has_one :profile, dependent: :destroy
   # has_many :projects, dependent: :destroy

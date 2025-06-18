@@ -1,0 +1,27 @@
+
+<%@leaves_pending.each_with_index do |leave,index|%>
+<tr class="bg-base-200">
+        <th><%=index+1%></th>
+        <td><%=leave.user.profile.employee_name%></td>
+        <td><%=leave.leavetype%></td>
+        <td><%=leave.subject%></td>
+        <td><%=leave.description%></td>
+        <td><%=leave.start_date%></td>
+        <td><%=leave.end_date%></td>
+        <td><%=(leave.end_date - leave.start_date).to_i%></td>
+        <td>
+            <div class="dropdown dropdown-bottom">
+            <div tabindex="0" role="button" class="btn m-1 btn-primary">Action
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24" stroke-width="1.5" stroke="currentColor" class="size-6">
+            <path stroke-linecap="round" stroke-linejoin="round" d="m19.5 8.25-7.5 7.5-7.5-7.5" />
+            </svg>
+            </div>
+            <ul tabindex="0" class="dropdown-content menu bg-base-100 rounded-box z-1 w-52 p-2 shadow-sm">
+                <li><%=  button_to 'Approve', leave_aproved_path(id: leave.id, decision: 'approve'), method: :post %></li>
+                <li><%=  button_to 'Decline', leave_aproved_path(id: leave.id, decision: 'decline'), method: :post %></li>
+            </ul>
+
+            </div>
+        </td>
+</tr>
+<%end%>

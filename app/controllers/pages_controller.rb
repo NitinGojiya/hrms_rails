@@ -1,5 +1,6 @@
 class PagesController < ApplicationController
    include Authentication
+  #  before_action :require_user!
   def index
     @session = Current.session
     @user = @session.user
