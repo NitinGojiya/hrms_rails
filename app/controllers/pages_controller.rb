@@ -1,9 +1,10 @@
 class PagesController < ApplicationController
-   include Authentication
+  #  include Authentication
   #  before_action :require_user!
+  include Authentication
+  before_action :require_user!
   def index
-    @session = Current.session
-    @user = @session.user
+    @user = Current.session.user
     @profile = @user.profile
     @todos = @user.assigned_tasks.order(created_at: :desc)
     @todos = Array(@todos)

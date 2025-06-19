@@ -1,17 +1,12 @@
 class LeavesController < ApplicationController
   include Authentication
   def new
-     @session = Current.session
-    @user = @session.user
-
+     common_object
     @leave = @user.leaves.new
   end
   def create
-    @session = Current.session
-    @user = @session.user
-
+    common_object
     @leave = @user.leaves.new(leave_params)
-
     if @leave.save
       redirect_to root_path, notice: "Leave application submitted successfully."
     else
@@ -33,7 +28,10 @@ class LeavesController < ApplicationController
   end
 
   private
-
+  def common_object
+    @session = Current.session
+    @user = @session.user
+  end
   def leave_params
     params.require(:leafe).permit(:leavetype, :start_date, :end_date, :subject, :description)
   end

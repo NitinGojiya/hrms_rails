@@ -1,7 +1,5 @@
 class ProfilesController < ApplicationController
    include Authentication
-  def index
-  end
   def new
      @session = Current.session
      @user = @session.user
@@ -9,11 +7,8 @@ class ProfilesController < ApplicationController
       @profile = @user.build_profile
   end
   def create
-    @session = Current.session
-    @user = @session.user
-
+    @user = Current.session.user
     @profile = @user.build_profile(profile_params)
-
     if @profile.save
       redirect_to root_path, notice: "Profile add successfully."
     else
@@ -22,16 +17,13 @@ class ProfilesController < ApplicationController
     end
   end
   def edit
-    @session = Current.session
-    @user = @session.user
+    @user = Current.session.user
     @profile = @user.profile
   end
 
   def update
-    @session = Current.session
-    @user = @session.user
+    @user = Current.session.user
     @profile = @user.profile
-
     if @profile.update(profile_params)
       redirect_to root_path, notice: "Profile updated successfully."
     else

@@ -5,7 +5,7 @@
     <td class="table-cell-padding whitespace-nowrap text-md font-medium text-gray-900"><%=employee.profile.employee_name%></td>
     <td class="table-cell-padding whitespace-nowrap text-md text-gray-500"><%=employee.profile.department%></td>
     <td class="table-cell-padding whitespace-nowrap text-md text-gray-500"><%=employee.profile.job_title%></td>
-    <td class="table-cell-padding whitespace-nowrap text-md text-gray-500"><%=employee.profile.created_at.strftime("%d-%m-%y")%></td>
+    <td class="table-cell-padding whitespace-nowrap text-md text-gray-500"><%=employee.created_at.strftime("%d-%m-%y")%></td>
     <td class="table-cell-padding whitespace-nowrap text-md text-gray-500">Full time</td>
     <td class="table-cell-padding whitespace-nowrap text-md text-gray-500">Male</td>
 
@@ -25,7 +25,7 @@
     <td class="table-cell-padding whitespace-nowrap text-md font-medium text-gray-900">Profile Pending</td>
     <td class="table-cell-padding whitespace-nowrap text-md text-gray-500">Profile Pending</td>
     <td class="table-cell-padding whitespace-nowrap text-md text-gray-500">Profile Pending</td>
-    <td class="table-cell-padding whitespace-nowrap text-md text-gray-500">Profile Pending</td>
+    <td class="table-cell-padding whitespace-nowrap text-md text-gray-500"><%=employee.created_at.strftime("%d-%m-%y")%></td>
     <td class="table-cell-padding whitespace-nowrap text-md text-gray-500">Profile Pending</td>
     <td class="table-cell-padding whitespace-nowrap text-md text-gray-500">Profile Pending</td>
 

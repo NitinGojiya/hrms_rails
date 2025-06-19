@@ -13,12 +13,14 @@
             <p class="text-gray-600">This is a tasks.</p>
         </div>
     </main>
-    <section class="container flex w-[1300px]">
-        <div class="w-[50%]">
+    <section class="container flex w-[1400px]">
+        <div class="w-[30%]">
             <%=render 'target'%>
         </div>
-        <div class="w-[50%]">
-            right
+        <div class="w-[70%] h-[500px] overflow-x-auto">
+            <div class="sticky top-0 z-10 bg-white"><p class="text-2xl">Tasks List</p></div>
+            <%=render 'viewmain'%>
+
         </div>
     </section>
     </div>

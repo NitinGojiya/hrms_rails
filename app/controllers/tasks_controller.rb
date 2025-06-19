@@ -1,10 +1,6 @@
 class TasksController < ApplicationController
-  def index
-  end
-
   def taskcreate
     @task = Task.new(task_params)
-
     if @task.save
       redirect_to "/admins/employee/target", notice: "Task add successfully."
     else
@@ -13,9 +9,12 @@ class TasksController < ApplicationController
     end
   end
 
+  def task_status
+  end
+
   private
 
   def task_params
-    params.require(:task).permit(:title, :description, :project_id, :assigned_user_id)
+    params.require(:task).permit(:title, :description, :project_id, :assigned_user_id, :start_date, :end_date)
   end
 end
