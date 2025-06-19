@@ -1,0 +1,11 @@
+  <tr>
+        <th scope="col" class="table-cell-padding text-left text-xs font-medium text-gray-500 uppercase tracking-wider rounded-tl-lg"><%=employee.email_address%></th>
+        <th scope="col" class="table-cell-padding text-left text-xs font-medium text-gray-500 uppercase tracking-wider rounded-tl-lg"><%= employee.profile&.employee_name  %></th>
+        <th scope="col" class="table-cell-padding text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= employee.profile&.department  %></th>
+        <th scope="col" class="table-cell-padding text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= employee.profile&.job_title  %></th>
+        <th scope="col" class="table-cell-padding text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= employee.created_at.strftime('%d-%m-%y')  %></th>
+        <th scope="col" class="table-cell-padding text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%=employee.profile&.phone_number%></th>
+        <th scope="col" class="table-cell-padding text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%=employee.profile&.acount_number%></th>
+        <th scope="col" class="table-cell-padding text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%=employee.leaves&.accept.sum { |leave| (leave.end_date - leave.start_date).to_i }%></th>
+        <th scope="col" class="table-cell-padding text-left text-xs font-medium text-gray-500 uppercase tracking-wider"><%= 60 - employee.leaves&.accept.sum { |leave| (leave.end_date - leave.start_date).to_i }%></th>
+    </tr>

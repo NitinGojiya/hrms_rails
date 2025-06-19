@@ -4,13 +4,14 @@
            id="sidebar">
         <!-- Sidebar Header -->
         <div class="flex items-center justify-center mb-6 py-4 border-b border-gray-700">
-            <img src="https://placehold.co/40x40/ffffff/000000?text=X" alt="XCELTECH Logo" class="h-10 w-10 mr-2 rounded-full">
-            <h1 class="text-2xl font-bold text-gray-100">HRMS</h1>
+            <img src="https://logopond.com/logos/15f62bc802687c44727a7bfd4983860f.png"
+            alt="Logo" class="h-10 w-15 mr-2 rounded-full">
+            <h1 class="text-4xl font-bold text-gray-100">HRMS</h1>
         </div>
 
         <!-- User Profile Section -->
         <div class="flex items-center mb-6 p-4 bg-gray-300 rounded-lg shadow-md">
-            <img src="https://placehold.co/64x64/FFD700/000000?text=AD" alt="Aman Admin Profile" class="w-16 h-16 rounded-full border-2 border-yellow-400 mr-4">
+            <img src="https://placehold.co/64x64/FFD700/000000?text=AD" alt="Admin Profile" class="w-16 h-16 rounded-full border-2 border-yellow-400 mr-4">
             <div class="">
                 <h2 class="text-lg font-semibold text-gray-800 text-wrap"><%=@user.email_address%></h2>
                 <p class="text-sm text-gray-700">Admin</p>
@@ -111,19 +112,3 @@
     </aside>
 
 <%=render 'shared/back'%>
-
-    <script>
-        const sidebarToggle = document.getElementById('sidebar-toggle');
-        const sidebar = document.getElementById('sidebar');
-
-        sidebarToggle.addEventListener('click', () => {
-            sidebar.classList.toggle('-translate-x-full');
-        });
-
-        // Close sidebar when clicking outside on mobile
-        document.addEventListener('click', (event) => {
-            if (window.innerWidth < 768 && !sidebar.contains(event.target) && !sidebarToggle.contains(event.target)) {
-                sidebar.classList.add('-translate-x-full');
-            }
-        });
-    </script>

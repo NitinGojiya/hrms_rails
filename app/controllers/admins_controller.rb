@@ -1,5 +1,7 @@
 class AdminsController < ApplicationController
   include Authentication
+  before_action :require_admin!
+  # allow_unauthenticated_access only: %i[ leave ]
   # dashboard for admin "/admins/dashboard"
   def index
     common_object
@@ -7,7 +9,8 @@ class AdminsController < ApplicationController
 
   #  for admin  leave manage "/admins/leave"
   def leave
-    common_object
+     # Leafe.all
+     common_object
   end
 
   #  for admin  employee data  get  "/admins/employee"
