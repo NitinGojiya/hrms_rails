@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_18_093619) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_19_093321) do
   create_table "leave_deatils", force: :cascade do |t|
     t.string "employee_type"
     t.integer "sick_leave"
@@ -81,6 +81,8 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_18_093619) do
     t.integer "assigned_user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.date "start_date"
+    t.date "end_date"
     t.index ["assigned_user_id"], name: "index_tasks_on_assigned_user_id"
     t.index ["project_id"], name: "index_tasks_on_project_id"
   end
