@@ -12,6 +12,8 @@ Rails.application.routes.draw do
   get "admins/employee", to: "admins#employee"
   post "leave_aproved", to: "leaves#accept", as: "leave_aproved"
   get "employee/profile/:id", to: "admins#viewemployee"
+  post "taskcreate", to: "tasks#taskcreate", as: "taskcreate"
+  get "admins/employee/target", to: "admins#employeetarget"
   # user routes
   resource :profiles
   get "profiles/:id", to: "profiles#show", as: :profile

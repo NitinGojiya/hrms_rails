@@ -1,5 +1,4 @@
 class Task < ApplicationRecord
-  broadcasts_to :user
   belongs_to :project
   before_create :status_initialize
   # Optional: If tasks are assigned to users
