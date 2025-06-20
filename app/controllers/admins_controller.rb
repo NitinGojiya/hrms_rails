@@ -36,7 +36,6 @@ class AdminsController < ApplicationController
     def common_object
       @leaves_pending = Leafe.pending.order(updated_at: :desc)
       @user = Current.session.user
-      @leaves_pending = Leafe.pending.order(updated_at: :desc)
       @leaves_accept = Leafe.accept.order(updated_at: :desc)
       @leaves = Leafe.all.order(updated_at: :desc)
       @employees = User.where(role: 0).order(created_at: :desc)
