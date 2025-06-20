@@ -1,0 +1,21 @@
+  <tr>
+        <th></th>
+        <td><%=salary.user.profile&.employee_name%></td>
+        <td><%=salary.user.email_address%></td>
+        <td><%=salary.user.profile&.department%></td>
+        <td><%=salary.user.profile&.job_title%></td>
+        <td><%=salary.salary%></td>
+        <td><button class="btn bg-yellow-600 text-white" onclick="my_modal_4.showModal()">Update</button></td>
+  </tr>
+<dialog id="my_modal_4" class="modal">
+  <div class="modal-box w-11/12 max-w-5xl">
+    <h3 class="text-lg font-bold">Hello!</h3>
+    <p class="py-4"><%=render 'addsalary'%></p>
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>

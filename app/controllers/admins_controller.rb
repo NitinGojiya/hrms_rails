@@ -32,6 +32,12 @@ class AdminsController < ApplicationController
     @task = Task.new
   end
 
+  def payroll
+    common_object
+    @salary = Salary.new
+    @salaries = Salary.all
+  end
+
   private
     def common_object
       @leaves_pending = Leafe.pending.order(updated_at: :desc)
