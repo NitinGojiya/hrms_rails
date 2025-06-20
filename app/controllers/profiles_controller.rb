@@ -3,8 +3,8 @@ class ProfilesController < ApplicationController
   def new
      @session = Current.session
      @user = @session.user
-      redirect_to edit_profile_path(@user.profile) if @user.profile
-      @profile = @user.build_profile
+     redirect_to edit_profile_path(@user.profile) if @user.profile
+     @profile = @user.build_profile
   end
   def create
     @user = Current.session.user

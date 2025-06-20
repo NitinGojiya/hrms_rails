@@ -1,12 +1,14 @@
 class PagesController < ApplicationController
-  #  include Authentication
-  #  before_action :require_user!
   include Authentication
   before_action :require_user!
   def index
     @user = Current.session.user
     @profile = @user.profile
-    @todos = @user.assigned_tasks.order(created_at: :desc)
+    if params[:status].present?
+      @todos = @user.assigned_tasks.where(status: params[:status]).order(created_at: :desc)
+    else
+      @todos = @user.assigned_tasks.order(updated_at: :desc)
+    end
     @todos = Array(@todos)
     @casual_leave = @user.leaves.casual
     @accept_leave = @user.leaves.accept

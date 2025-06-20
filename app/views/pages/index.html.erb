@@ -74,21 +74,21 @@
             <!-- To-dos Card -->
             <div class="bg-white p-6 rounded-lg shadow-md h-[400px] overflow-y-auto">
 
-                 <div class="flex justify-between items-center mb-4 sticky top-0 z-10 bg-white ">
+                 <div class="flex justify-between items-center mb-4 sticky top-0 z-10 bg-white mb-5 ">
 
                     <h3 class="text-xl font-semibold text-gray-800">To-dos</h3>
-                    <button class="text-gray-500 hover:text-gray-700 " popovertarget="popover-1" style="anchor-name:--anchor-1">
-                        <i class="fas fa-ellipsis-v pointer"></i>
+                    <button class="text-gray-500 hover:text-black" popovertarget="popover-1" style="anchor-name:--anchor-1">
+                        <i class="fas fa-ellipsis-v "></i>
                     </button>
                     <!-- <button class="btn" popovertarget="popover-1" style="anchor-name:--anchor-1">
                         Button
                         </button> -->
                         <ul class="dropdown dropdown-left menu w-52 rounded-box bg-base-100 shadow-sm capitalize"
                         popover id="popover-1" style="position-anchor:--anchor-1">
-                        <li class="m-1"><a>All</a></li>
-                        <li class="m-1 bg-red-500 text-white"><a>pending</a></li>
-                        <li class="m-1 bg-yellow-500 text-white"><a>process</a></li>
-                        <li class="m-1 bg-green-500 text-white"><a>completed</a></li>
+                        <li class="m-1"><%= link_to 'All', root_path %></li>
+                        <li class="m-1 bg-red-500 text-white"><%= link_to 'Pending', root_path(status: 'pending') %></li>
+                        <li class="m-1 bg-yellow-500 text-white"><%= link_to 'Process', root_path(status: 'process') %></li>
+                        <li class="m-1 bg-green-500 text-white"><%= link_to 'Completed', root_path(status: 'completed') %></li>
                         </ul>
                 </div>
                 <div class="space-y-3">

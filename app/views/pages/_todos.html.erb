@@ -13,7 +13,16 @@
       <p>Description: <%= todos.description %></p>
       <p>Status: <%= todos.status %></p>
       <p>Project: <%= todos.project.p_name %></p>
-      <p>Start: <%= todos.start_date %> || Deadline: <%= todos.end_date %></p>
+      <p>Start: <%= todos.start_date&.strftime('%d-%m-%Y') %> || Deadline: <%= todos.end_date&.strftime('%d-%m-%Y') %></p>
+      <div class="flex gap-2">
+        <% if todos.status == "pending" %>
+        <div><%= button_to 'Start Task', task_manage_path(id:todos.id,status: 'process'), method: :post,class:"btn btn-soft btn-success" %></div>
+        <%  end %>
+        <%  if todos.status == "process" %>
+        <div><%= button_to 'End Task', task_manage_path(id:todos.id,status: 'completed'), method: :post,class:"btn btn-soft btn-error" %></div>
+        <% end %>
+
+      </div>
     </div>
   </div>
 

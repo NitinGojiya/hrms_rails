@@ -28,7 +28,7 @@ class AdminsController < ApplicationController
   def employeetarget
     common_object
     @projects = Project.all
-    @tasks = Task.all.order(created_at: :desc)
+    @tasks = Task.all.order(updated_at: :desc)
     @task = Task.new
   end
 

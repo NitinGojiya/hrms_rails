@@ -22,4 +22,5 @@ Rails.application.routes.draw do
   patch "profiles/:id", to:  "profiles#update"
   root "pages#index"
   post "apply_leave", to: "leaves#create", as: "leave_submit"
+  post "task_manage", to: "tasks#taskmanage", as: "task_manage"
 end

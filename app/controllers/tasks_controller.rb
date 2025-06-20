@@ -1,4 +1,5 @@
 class TasksController < ApplicationController
+  include Authentication
   def taskcreate
     @task = Task.new(task_params)
     if @task.save
@@ -9,7 +10,16 @@ class TasksController < ApplicationController
     end
   end
 
-  def task_status
+  def taskmanage
+    task = Task.find(params[:id])
+    case params[:status]
+    when "process"
+      task.update(status: "process")
+    when "completed"
+      task.update(status: "completed")
+    end
+
+    redirect_back fallback_location: "/", notice: "Task #{task.status}"
   end
 
   private

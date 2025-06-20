@@ -1,10 +1,10 @@
-  <tr>
+  <tr class="capitalize <%= 'text-green-600' if task.status == 'completed' %> <%= 'text-red-500' if task.status == 'pending' %> <%= 'text-yellow-600' if task.status == 'process' %> ">
         <th></th>
         <td><%=task.title%></td>
         <td><%=task.description%></td>
         <td><%=task.assigned_user.profile.employee_name%></td>
         <td><%=task.project.p_name%></td>
-        <td><%=task.end_date%></td>
-        <td><%=task.status%></td>
-        <td><button class="btn bg-yellow-500 text-white">Send Message</button></td>
+        <td><%=task.end_date&.strftime('%d-%m-%Y')%></td>
+        <td class=""><%=task.status%></td>
+        <td><button class="btn <%= 'bg-green-600' if task.status == 'completed' %> <%= 'bg-red-500' if task.status == 'pending' %> <%= 'bg-yellow-600' if task.status == 'process' %> text-white">Send Message</button></td>
   </tr>
