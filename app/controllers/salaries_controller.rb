@@ -10,6 +10,10 @@ class SalariesController < ApplicationController
     end
   end
 
+  def index
+    @user = Current.session.user
+  end
+
   private
 
   def salary_params

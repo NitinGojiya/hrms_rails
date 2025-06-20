@@ -1,0 +1,194 @@
+<div class="container mx-auto p-4 flex flex-col items-center">
+        <!-- Salary Slip Content - This will be converted to PDF -->
+        <div id="salary-slip-content" class="a4-page rounded-xl">
+            <!-- Header Section -->
+            <div class="bg-blue-600 text-white text-center py-4 rounded-t-xl">
+                <h1 class="text-3xl font-bold tracking-wide">Salary Slip</h1>
+                <p class="text-lg mt-1">Company Information</p>
+            </div>
+
+            <!-- Company Information -->
+            <div class="p-6 border-b border-gray-200 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <div class="flex items-center mb-2">
+                        <span class="font-semibold w-36">Company Name:</span>
+                        <span class="flex-1 border-b border-gray-300 pb-1">HRMS</span>
+                    </div>
+                    <div class="flex items-center mb-2">
+                        <span class="font-semibold w-36">Company Address:</span>
+                        <span class="flex-1 border-b border-gray-300 pb-1">123 Business St, City, Country</span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-semibold w-36">Company Phone no:</span>
+                        <span class="flex-1 border-b border-gray-300 pb-1">+1 (123) 456-7890</span>
+                    </div>
+                </div>
+                <div class="md:text-right flex items-center justify-center md:justify-end">
+                    <div class="w-48 h-24 bg-blue-100 border border-blue-300 rounded-lg flex items-center justify-center text-gray-500 text-sm italic">
+                        COMPANY LOGO
+                    </div>
+                </div>
+                <div class="md:col-span-2">
+                    <div class="flex items-center">
+                        <span class="font-semibold w-36">Company Email Address:</span>
+                        <span class="flex-1 border-b border-gray-300 pb-1">info@company.com</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Employee Information -->
+            <div class="bg-gray-100 text-gray-800 text-center py-3 border-b border-gray-200">
+                <h2 class="text-xl font-semibold">Employee Information</h2>
+            </div>
+            <div class="p-6 border-b border-gray-200 grid grid-cols-1 md:grid-cols-2 gap-4">
+                <div>
+                    <div class="flex items-center mb-2">
+                        <span class="font-semibold w-36">Employee Name:</span>
+                        <span class="flex-1 border-b border-gray-300 pb-1"><%=user.profile.employee_name%></span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-semibold w-36">Employee Address:</span>
+                        <span class="flex-1 border-b border-gray-300 pb-1"><%=user.profile.city%></span>
+                    </div>
+                </div>
+                <div>
+                    <div class="flex items-center mb-2">
+                        <span class="font-semibold w-36">Phone no:</span>
+                        <span class="flex-1 border-b border-gray-300 pb-1"><%=user.profile.phone_number%></span>
+                    </div>
+                    <div class="flex items-center">
+                        <span class="font-semibold w-36">Employee Email ID:</span>
+                        <span class="flex-1 border-b border-gray-300 pb-1"><%=user.email_address%></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Earnings and Deductions Tables -->
+            <div class="p-6 grid grid-cols-1 md:grid-cols-2 gap-8 border-b border-gray-200">
+                <!-- Earnings -->
+                <div>
+                    <h3 class="text-lg font-bold mb-3 text-gray-700">Earnings</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white rounded-lg shadow-sm border border-gray-200">
+                            <thead>
+                                <tr class="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
+                                    <th class="py-3 px-6 text-left border-b border-gray-200">Description</th>
+                                    <th class="py-3 px-6 text-right border-b border-gray-200">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700 text-sm">
+                                <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                    <td class="py-3 px-6 text-left">Basic</td>
+                                    <td class="py-3 px-6 text-right">Rs.<%=user.salary.salary%></td>
+                                </tr>
+                                <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                    <td class="py-3 px-6 text-left">Special Allowance</td>
+                                    <td class="py-3 px-6 text-right">Rs.1000.00</td>
+                                </tr>
+                                <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                    <td class="py-3 px-6 text-left">HRA</td>
+                                    <td class="py-3 px-6 text-right">Rs.2000.00</td>
+                                </tr>
+                                <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                    <td class="py-3 px-6 text-left">Other Earnings</td>
+                                    <td class="py-3 px-6 text-right">Rs.500.00</td>
+                                </tr>
+                                <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                    <td class="py-3 px-6 text-left">Incentives</td>
+                                    <td class="py-3 px-6 text-right">Rs.300.00</td>
+                                </tr>
+                                <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                    <td class="py-3 px-6 text-left">Bonus</td>
+                                    <td class="py-3 px-6 text-right">Rs.200.00</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-3 px-6 text-left">Over Time Pay</td>
+                                    <td class="py-3 px-6 text-right">Rs.150.00</td>
+                                </tr>
+                                <tr class="font-bold bg-gray-100">
+                                    <td class="py-3 px-6 text-left">Total Earnings</td>
+                                    <td class="py-3 px-6 text-right">Rs.9150.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+
+                <!-- Deductions -->
+                <div>
+                    <h3 class="text-lg font-bold mb-3 text-gray-700">Deductions</h3>
+                    <div class="overflow-x-auto">
+                        <table class="min-w-full bg-white rounded-lg shadow-sm border border-gray-200">
+                            <thead>
+                                <tr class="bg-gray-100 text-gray-600 uppercase text-sm leading-normal">
+                                    <th class="py-3 px-6 text-left border-b border-gray-200">Description</th>
+                                    <th class="py-3 px-6 text-right border-b border-gray-200">Amount</th>
+                                </tr>
+                            </thead>
+                            <tbody class="text-gray-700 text-sm">
+                                <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                    <td class="py-3 px-6 text-left">Provident Fund</td>
+                                    <td class="py-3 px-6 text-right">Rs.600.00</td>
+                                </tr>
+                                <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                    <td class="py-3 px-6 text-left">ESI</td>
+                                    <td class="py-3 px-6 text-right">Rs.150.00</td>
+                                </tr>
+                                <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                    <td class="py-3 px-6 text-left">Professional Tax</td>
+                                    <td class="py-3 px-6 text-right">Rs.100.00</td>
+                                </tr>
+                                <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                    <td class="py-3 px-6 text-left">Salary Advance</td>
+                                    <td class="py-3 px-6 text-right">Rs.0.00</td>
+                                </tr>
+                                <tr class="border-b border-gray-200 hover:bg-gray-50">
+                                    <td class="py-3 px-6 text-left">TDS</td>
+                                    <td class="py-3 px-6 text-right">Rs.50.00</td>
+                                </tr>
+                                <tr class="hover:bg-gray-50">
+                                    <td class="py-3 px-6 text-left">Other Deduction</td>
+                                    <td class="py-3 px-6 text-right">Rs.20.00</td>
+                                </tr>
+                                <tr class="font-bold bg-gray-100">
+                                    <td class="py-3 px-6 text-left">Total Deductions</td>
+                                    <td class="py-3 px-6 text-right">Rs.920.00</td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Net Pay Section -->
+            <div class="p-6 border-b border-gray-200">
+                <div class="flex flex-col md:flex-row justify-between items-start md:items-center text-lg font-bold text-gray-800">
+                    <div class="mb-4 md:mb-0">
+                        <span>Net Pay:</span>
+                        <span class="text-green-600 ml-2"><%=user.salary.salary%></span>
+                    </div>
+                    <div class="w-full md:w-auto">
+                        <span>In Words:</span>
+                        <span class="inline-block border-b-2 border-gray-400 w-full md:w-96 pb-1 ml-2 text-base font-normal"><%=number_to_human(user.salary.salary) %></span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Prepared By / Received By -->
+            <div class="p-6 flex flex-col md:flex-row justify-between gap-6 pt-12">
+                <div class="flex flex-col items-start w-full md:w-1/2">
+                    <span class="block border-b-2 border-gray-400 w-48 pb-1 text-center mb-2"></span>
+                    <span class="text-gray-600 text-sm">Prepared By</span>
+                </div>
+                <div class="flex flex-col items-end w-full md:w-1/2">
+                    <span class="block border-b-2 border-gray-400 w-48 pb-1 text-center mb-2"></span>
+                    <span class="text-gray-600 text-sm">Received By</span>
+                </div>
+            </div>
+
+            <!-- Footer for the A4 page -->
+            <div class="text-center text-gray-400 text-xs mt-8">
+                This is a computer-generated salary slip and does not require a signature.
+            </div>
+        </div>
+    </div>
