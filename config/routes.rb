@@ -15,7 +15,9 @@ Rails.application.routes.draw do
   post "taskcreate", to: "tasks#taskcreate", as: "taskcreate"
   get "admins/employee/target", to: "admins#employeetarget"
   get "admins/employee/payroll", to: "admins#payroll"
+  get "admins/projects", to: "projects#index"
   post "salarycreate", to: "salaries#salarycreate", as: "salarycreate"
+  post "projectcreate", to: "projects#create", as: "projectcreate"
   # user routes
   resource :profiles
   get "profiles/:id", to: "profiles#show", as: :profile

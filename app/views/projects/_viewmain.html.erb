@@ -1,0 +1,23 @@
+<div class="overflow-x-auto">
+
+  <table class="table">
+    <!-- head -->
+    <thead>
+      <tr>
+        <th></th>
+        <th>Task Name</th>
+        <th>Description</th>
+        <th>Employee Name</th>
+        <th>Project Name</th>
+        <th>Task Deadline</th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- row 1 -->
+
+    <%=render partial:'viewtask',collection:@tasks, as: :task%>
+    </tbody>
+  </table>
+</div>
