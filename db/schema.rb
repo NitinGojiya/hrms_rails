@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_20_065921) do
+ActiveRecord::Schema[8.0].define(version: 2025_06_23_063513) do
   create_table "leave_deatils", force: :cascade do |t|
     t.string "employee_type"
     t.integer "sick_leave"
@@ -70,6 +70,17 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_20_065921) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.index ["user_id"], name: "index_salaries_on_user_id", unique: true
+  end
+
+  create_table "salary_rules", force: :cascade do |t|
+    t.float "pf"
+    t.float "esi"
+    t.float "professional"
+    t.float "salaryadvance"
+    t.float "tds"
+    t.float "other"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "sessions", force: :cascade do |t|
