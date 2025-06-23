@@ -23,6 +23,7 @@ class SalariesController < ApplicationController
 
   def index
     @user = Current.session.user
+    @salaryrule = SalaryRule.first
   end
 
   private

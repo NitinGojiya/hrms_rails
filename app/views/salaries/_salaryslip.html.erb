@@ -1,5 +1,6 @@
 <div class="container mx-auto p-4 flex flex-col items-center">
         <!-- Salary Slip Content - This will be converted to PDF -->
+         <%if user.salary.present?%>
         <div id="salary-slip-content" class="a4-page rounded-xl">
             <!-- Header Section -->
             <div class="bg-blue-600 text-white text-center py-4 rounded-t-xl">
@@ -83,31 +84,31 @@
                                 </tr>
                                 <tr class="border-b border-gray-200 hover:bg-gray-50">
                                     <td class="py-3 px-6 text-left">Special Allowance</td>
-                                    <td class="py-3 px-6 text-right">Rs.1000.00</td>
+                                    <td class="py-3 px-6 text-right">Rs.0.00</td>
                                 </tr>
                                 <tr class="border-b border-gray-200 hover:bg-gray-50">
                                     <td class="py-3 px-6 text-left">HRA</td>
-                                    <td class="py-3 px-6 text-right">Rs.2000.00</td>
+                                    <td class="py-3 px-6 text-right">Rs.0.00</td>
                                 </tr>
                                 <tr class="border-b border-gray-200 hover:bg-gray-50">
                                     <td class="py-3 px-6 text-left">Other Earnings</td>
-                                    <td class="py-3 px-6 text-right">Rs.500.00</td>
+                                    <td class="py-3 px-6 text-right">Rs.0.00</td>
                                 </tr>
                                 <tr class="border-b border-gray-200 hover:bg-gray-50">
                                     <td class="py-3 px-6 text-left">Incentives</td>
-                                    <td class="py-3 px-6 text-right">Rs.300.00</td>
+                                    <td class="py-3 px-6 text-right">Rs.0.00</td>
                                 </tr>
                                 <tr class="border-b border-gray-200 hover:bg-gray-50">
                                     <td class="py-3 px-6 text-left">Bonus</td>
-                                    <td class="py-3 px-6 text-right">Rs.200.00</td>
+                                    <td class="py-3 px-6 text-right">Rs.0.00</td>
                                 </tr>
                                 <tr class="hover:bg-gray-50">
                                     <td class="py-3 px-6 text-left">Over Time Pay</td>
-                                    <td class="py-3 px-6 text-right">Rs.150.00</td>
+                                    <td class="py-3 px-6 text-right">Rs.0.00</td>
                                 </tr>
                                 <tr class="font-bold bg-gray-100">
                                     <td class="py-3 px-6 text-left">Total Earnings</td>
-                                    <td class="py-3 px-6 text-right">Rs.9150.00</td>
+                                    <td class="py-3 px-6 text-right">Rs.0.00</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -115,6 +116,8 @@
                 </div>
 
                 <!-- Deductions -->
+                 <!-- total deduction calculating initialize -->
+                 <%total_deduction = 0 %>
                 <div>
                     <h3 class="text-lg font-bold mb-3 text-gray-700">Deductions</h3>
                     <div class="overflow-x-auto">
@@ -128,31 +131,31 @@
                             <tbody class="text-gray-700 text-sm">
                                 <tr class="border-b border-gray-200 hover:bg-gray-50">
                                     <td class="py-3 px-6 text-left">Provident Fund</td>
-                                    <td class="py-3 px-6 text-right">Rs.600.00</td>
+                                    <td class="py-3 px-6 text-right">Rs.<%= total_deduction += (user.salary.salary * @salaryrule.pf) / 100%></td>
                                 </tr>
                                 <tr class="border-b border-gray-200 hover:bg-gray-50">
                                     <td class="py-3 px-6 text-left">ESI</td>
-                                    <td class="py-3 px-6 text-right">Rs.150.00</td>
+                                    <td class="py-3 px-6 text-right">Rs.<% total_deduction += (user.salary.salary * @salaryrule.esi) / 100%><%= (user.salary.salary * @salaryrule.esi) / 100%></td>
                                 </tr>
                                 <tr class="border-b border-gray-200 hover:bg-gray-50">
                                     <td class="py-3 px-6 text-left">Professional Tax</td>
-                                    <td class="py-3 px-6 text-right">Rs.100.00</td>
+                                    <td class="py-3 px-6 text-right">Rs.<%total_deduction += (user.salary.salary * @salaryrule.esi) / 100%><%=(user.salary.salary * @salaryrule.esi) / 100%></td>
                                 </tr>
                                 <tr class="border-b border-gray-200 hover:bg-gray-50">
                                     <td class="py-3 px-6 text-left">Salary Advance</td>
-                                    <td class="py-3 px-6 text-right">Rs.0.00</td>
+                                    <td class="py-3 px-6 text-right">Rs.<%total_deduction += (user.salary.salary * @salaryrule.esi) / 100%><%= (user.salary.salary * @salaryrule.esi) / 100%></td>
                                 </tr>
                                 <tr class="border-b border-gray-200 hover:bg-gray-50">
                                     <td class="py-3 px-6 text-left">TDS</td>
-                                    <td class="py-3 px-6 text-right">Rs.50.00</td>
+                                    <td class="py-3 px-6 text-right">Rs.<%total_deduction += (user.salary.salary * @salaryrule.esi) / 100%><%= (user.salary.salary * @salaryrule.esi) / 100%></td>
                                 </tr>
                                 <tr class="hover:bg-gray-50">
                                     <td class="py-3 px-6 text-left">Other Deduction</td>
-                                    <td class="py-3 px-6 text-right">Rs.20.00</td>
+                                    <td class="py-3 px-6 text-right">Rs.<%total_deduction += (user.salary.salary * @salaryrule.esi) / 100%><%= (user.salary.salary * @salaryrule.esi) / 100%></td>
                                 </tr>
                                 <tr class="font-bold bg-gray-100">
                                     <td class="py-3 px-6 text-left">Total Deductions</td>
-                                    <td class="py-3 px-6 text-right">Rs.920.00</td>
+                                    <td class="py-3 px-6 text-right">Rs.<%=total_deduction%></td>
                                 </tr>
                             </tbody>
                         </table>
@@ -165,11 +168,15 @@
                 <div class="flex flex-col md:flex-row justify-between items-start md:items-center text-lg font-bold text-gray-800">
                     <div class="mb-4 md:mb-0">
                         <span>Net Pay:</span>
-                        <span class="text-green-600 ml-2"><%=user.salary.salary%></span>
+                        <span class="text-green-600 ml-2"><%= net_salary = user.salary.salary - total_deduction  %></span>
                     </div>
                     <div class="w-full md:w-auto">
                         <span>In Words:</span>
-                        <span class="inline-block border-b-2 border-gray-400 w-full md:w-96 pb-1 ml-2 text-base font-normal"><%=number_to_human(user.salary.salary) %></span>
+                        <span class="inline-block border-b-2 border-gray-400 w-full md:w-96 pb-1 ml-2 text-base font-normal"><%=number_to_human(net_salary,precision: 2,
+                        significant: false,
+                        strip_insignificant_zeros: true,
+                        units: { thousand: 'Thousand', million: 'M', billion: 'B', trillion: 'T' })
+        %></span>
                     </div>
                 </div>
             </div>
@@ -191,4 +198,7 @@
                 This is a computer-generated salary slip and does not require a signature.
             </div>
         </div>
+        <%else%>
+        <p>You have no salary<p>
+        <%end%>
     </div>
