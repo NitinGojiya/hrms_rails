@@ -1,11 +1,12 @@
 class ProfilesController < ApplicationController
    include Authentication
-  def new
+
+   def new
      @session = Current.session
      @user = @session.user
      redirect_to edit_profile_path(@user.profile) if @user.profile
      @profile = @user.build_profile
-  end
+   end
   def create
     @user = Current.session.user
     @profile = @user.build_profile(profile_params)
