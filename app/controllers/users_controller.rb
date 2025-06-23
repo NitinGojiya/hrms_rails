@@ -21,9 +21,18 @@ class UsersController < ApplicationController
     end
   end
 
-private
+  def update
+    @user = User.find(Current.session.user.id)
+    if @user.update(user_params)
+      redirect_to "/profiles/edit", notice: "Photo updated"
+    else
+      render :edit, status: :unprocessable_entity
+    end
+  end
 
-def user_params
-  params.require(:user).permit(:email_address, :password)
-end
+  private
+
+  def user_params
+    params.require(:user).permit(:email_address, :password, :profile_photo)
+  end
 end

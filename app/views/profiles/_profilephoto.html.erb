@@ -1,0 +1,44 @@
+
+<div class="flex flex-col gap-3 items-center justify-center">
+        <div>
+         <% if @user.profile_photo.attached? %>
+                    <%= image_tag @user.profile_photo.variant(resize_to_limit: [150, 150]) ,alt:"User Avatar" ,class:"rounded-full"%>
+                    <% else %>
+                    <img src="data:image/jpeg;base64,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" alt="User Avatar" class="rounded-full">
+         <% end %>
+        </div>
+        <div>
+            <button class="btn" onclick="profile_photo.showModal()">Update photo</button>
+        </div>
+</div>
+
+
+<dialog id="profile_photo" class="modal">
+  <div class="modal-box w-11/12 max-w-3xl">
+    <h3 class="text-lg font-bold">Hello!</h3>
+      <%= form_for @user, url: photo_path, html: { multipart: true }, local: true do |form| %>
+        <div>
+            <%= form.label :email_address %>
+            <%= form.text_field :email_address %>
+        </div>
+        <div>
+            <fieldset class="fieldset">
+            <legend class="fieldset-legend">Pick a Profile</legend>
+            <%= form.file_field :profile_photo, class: "file-input input-info" %>
+            <label class="label">Max size 2MB</label>
+            </fieldset>
+        </div>
+
+        <div>
+            <%= form.submit "Update", class: "btn btn-success" %>
+        </div>
+        <% end %>
+
+    <div class="modal-action">
+      <form method="dialog">
+        <!-- if there is a button, it will close the modal -->
+        <button class="btn">Close</button>
+      </form>
+    </div>
+  </div>
+</dialog>

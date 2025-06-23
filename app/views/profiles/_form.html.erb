@@ -1,7 +1,11 @@
 
- <%= form_with model: profile, local: true do |form| %>
+<%=render 'profilephoto'%>
+
+<%= form_with model: profile, local: true do |form| %>
 <div class="flex flex-col gap-4 items-center justify-center">
     <div class="flex gap-4">
+
+
     <div>
      <%=form.text_field:employee_name,class:"input input-neutral w-sm" ,placeholder:"Full Name"%>
     </div>

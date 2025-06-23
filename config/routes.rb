@@ -27,4 +27,5 @@ Rails.application.routes.draw do
   post "apply_leave", to: "leaves#create", as: "leave_submit"
   post "task_manage", to: "tasks#taskmanage", as: "task_manage"
   get "salary", to: "salaries#index"
+  patch "/photo", to: "users#update", as: "photo"
 end

@@ -33,6 +33,15 @@
                     </fieldset>
                      </div>
 
+
+                    <div class="w-[500px]">
+                        <fieldset class="fieldset">
+                        <legend class="fieldset-legend">Pick a Profile</legend>
+                        <%= form.file_field :profile_photo ,class:"file-input input-info"%>
+                        <label class="label">Max size 2MB</label>
+                        </fieldset>
+                    </div>
+
                 <div class="flex gap-5 w-[500px]">
                     <div> <%= form.submit "Create Account", class: "btn btn-success" %></div>
                   <div><%= link_to "Login","/session/new" , class: "btn btn-primary" %></div>
