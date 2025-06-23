@@ -5,6 +5,7 @@ Rails.application.routes.draw do
   resources :passwords, param: :token
 
   # admin routes
+
   resource :admins
   get "admins/dashboard", to: "admins#index"
   get "admins/leave", to: "admins#leave"
@@ -19,6 +20,7 @@ Rails.application.routes.draw do
   post "salarycreate", to: "salaries#salarycreate", as: "salarycreate"
   patch "salaryupdate", to: "salaries#salaryupdate", as: "salaryupdate"
   post "projectcreate", to: "projects#create", as: "projectcreate"
+
   # user routes
   resource :profiles
   get "profiles/:id", to: "profiles#show", as: :profile
