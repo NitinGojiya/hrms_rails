@@ -6,8 +6,8 @@
         <td><%=leave.leavetype%></td>
         <td><%=leave.subject%></td>
         <td><%=leave.description%></td>
-        <td><%=leave.start_date%></td>
-        <td><%=leave.end_date%></td>
+        <td><%=leave.start_date.strftime('%d-%m-%y')%></td>
+        <td><%=leave.end_date.strftime('%d-%m-%y')%></td>
         <td><%=(leave.end_date && leave.start_date) ? (leave.end_date - leave.start_date).to_i : 0%></td>
         <td>
             <div class="dropdown dropdown-bottom">

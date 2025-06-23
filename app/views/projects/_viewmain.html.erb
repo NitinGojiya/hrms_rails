@@ -5,19 +5,27 @@
     <thead>
       <tr>
         <th></th>
-        <th>Task Name</th>
-        <th>Description</th>
-        <th>Employee Name</th>
         <th>Project Name</th>
-        <th>Task Deadline</th>
+        <th>Technology </th>
+        <th>Project Start Date</th>
+        <th>Project Deadline</th>
         <th>Status</th>
         <th>Action</th>
       </tr>
     </thead>
     <tbody>
       <!-- row 1 -->
-
-    <%=render partial:'viewtask',collection:@tasks, as: :task%>
+       <%@projects.each do |project|%>
+      <tr>
+        <th></th>
+        <th><%=project.p_name%></th>
+        <th><%=project.tech%></th>
+        <th><%=project.start_date.strftime('%d-%m-%y') %></th>
+        <th class="<%= 'text-red-500' if project.end_date < Time.now %>"><%=project.end_date.strftime('%d-%m-%y')%></th>
+        <th>Status</th>
+        <th>Action</th>
+      </tr>
+      <%end%>
     </tbody>
   </table>
 </div>

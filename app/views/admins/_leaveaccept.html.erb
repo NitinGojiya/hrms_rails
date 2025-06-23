@@ -15,18 +15,18 @@
     </thead>
     <tbody>
       <!-- row 1 -->
-      <%@leaves_accept.each_with_index do |leave,index|%>
+  <%@leaves_accept.each_with_index do |leave,index|%>
     <tr class="bg-base-200">
         <th><%=index+1%></th>
         <td><%=leave.user.profile.employee_name%></td>
         <td><%=leave.leavetype%></td>
         <td><%=leave.subject%></td>
         <td><%=leave.description%></td>
-        <td><%=leave.start_date%></td>
-        <td><%=leave.end_date%></td>
+        <td><%=leave.start_date.strftime('%d-%m-%y')%></td>
+        <td><%=leave.end_date.strftime('%d-%m-%y')%></td>
         <td><%=(leave.end_date - leave.start_date).to_i%></td>
-</tr>
-<%end%>
+    </tr>
+  <%end%>
 
     </tbody>
   </table>

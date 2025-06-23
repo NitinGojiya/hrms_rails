@@ -17,6 +17,7 @@ Rails.application.routes.draw do
   get "admins/employee/payroll", to: "admins#payroll"
   get "admins/projects", to: "projects#index"
   post "salarycreate", to: "salaries#salarycreate", as: "salarycreate"
+  patch "salaryupdate", to: "salaries#salaryupdate", as: "salaryupdate"
   post "projectcreate", to: "projects#create", as: "projectcreate"
   # user routes
   resource :profiles

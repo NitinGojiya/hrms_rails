@@ -10,6 +10,17 @@ class SalariesController < ApplicationController
     end
   end
 
+  def salaryupdate
+   @salary = Salary.find(params[:salary][:id])
+    @salary.salary = params[:salary][:salary]
+    if @salary.save
+      redirect_to "/admins/employee/payroll", notice: "Salary updated successfully."
+    else
+      flash[:alert] = "Salary updated in error."
+      redirect_to "/admins/employee/payroll"
+    end
+  end
+
   def index
     @user = Current.session.user
   end
