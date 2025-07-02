@@ -1,25 +1,64 @@
 # README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
 
-Things you may want to cover:
+Welcome to the **HRMS (Human Resource Management System)** project!
 
-* Ruby version
+This document provides all the necessary steps to get the application up and running, including requirements, setup, configuration, and usage instructions.
 
-* System dependencies
 
-* Configuration
+## Requirements
 
-* Database creation
+- **Ruby version:** `3.4.2`
+- **System dependencies:** [`tailwindcss-ruby`](https://github.com/rails/tailwindcss-rails)
 
-* Database initialization
+## Setup & Configuration
 
-* How to run the test suite
+1. **Install dependencies:**
+   ```bash
+   bundle install
+   ```
 
-* Services (job queues, cache servers, search engines, etc.)
+2. **Set up the database:**
+   ```bash
+   rails db:setup
+   # or, if you want to seed existing database
+   rails db:seed
+   ```
 
-* Deployment instructions
+3. **Configuration:**
+   - Copy and edit any required files in `config/` as needed (e.g., `database.yml`, `credentials.yml.enc`).
+
+## Running the Application
+
+Start the Rails server:
+```bash
+bin/rails server
+```
+
+## Running Tests
+
+To run the test suite:
+```bash
+bin/rails test
+```
+
+## Services
+
+- **Job queues:** See `config/queue.yml` for configuration.
+- **Cache server:** See `config/cache.yml`.
+- **Search engines:** (Add details if used)
+
+## Deployment
+
+Refer to `config/deploy.yml` and your deployment platform documentation for instructions.
 
 * ...
-![Screenshot of the application](app/assets/images/bluback.png)
+
+* Employee Home Page
+![Screenshot of the application](app/assets/screen/userhome.png)
+* Admin Home Page
+![Screenshot of the application](app/assets/screen/adminhome.png)
+* Admin payroll
+![Screenshot of the application](app/assets/screen/adminpayroll.png)
+* Admin Leave Manage
+![Screenshot of the application](app/assets/screen/adminleave.png)
