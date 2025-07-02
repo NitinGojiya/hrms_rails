@@ -6,6 +6,9 @@ class Task < ApplicationRecord
   scope :pending, -> { where(status: "pending") }
   scope :process, -> { where(status: "process") }
   scope :completed, -> { where(status: "completed") }
+
+  validates :title, presence: true
+
   private
 
   def status_initialize

@@ -54,13 +54,13 @@ module Authentication
     # custome auth
     def require_admin!
       unless Current.session.user.role == 1
-        redirect_to "/", alert: "Admins only!"
+        redirect_to "/", alert: "Unauthorized  person !"
       end
     end
 
     def require_user!
       unless Current.session.user.role == 0
-        redirect_to "/admins/dashboard", alert: "Users only!"
+        redirect_to "/admins/dashboard", alert: "Unauthorized  person !"
       end
     end
 end

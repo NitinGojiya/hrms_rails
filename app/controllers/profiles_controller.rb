@@ -14,7 +14,7 @@ class ProfilesController < ApplicationController
       redirect_to root_path, notice: "Profile add successfully."
     else
       flash[:alert] = "There was an error submitting your Profile."
-      redirect_to root_path # Or re-render index if needed
+      render :new, status: :unprocessable_entity
     end
   end
   def edit
@@ -28,8 +28,8 @@ class ProfilesController < ApplicationController
     if @profile.update(profile_params)
       redirect_to root_path, notice: "Profile updated successfully."
     else
+      render :edit, status: :unprocessable_entity
       flash[:alert] = "There was an error updating your profile."
-      render :edit
     end
   end
   def show

@@ -6,17 +6,18 @@ Rails.application.routes.draw do
 
   # admin routes
 
-  resource :admins
-  get "admins/dashboard", to: "admins#index"
-  get "admins/leave", to: "admins#leave"
-  get "admins/leave", to: "admins#leave"
-  get "admins/employee", to: "admins#employee"
-  post "leave_aproved", to: "leaves#accept", as: "leave_aproved"
+  resource :admins do
+    get "dashboard", to: "admins#index"
+    get "leave", to: "admins#leave"
+    get "employee", to: "admins#employee"
+    get "employee/target", to: "admins#employeetarget"
+    get "employee/payroll", to: "admins#payroll"
+    get "projects", to: "projects#index"
+  end
+
   get "employee/profile/:id", to: "admins#viewemployee"
+  post "leave_aproved", to: "leaves#accept", as: "leave_aproved"
   post "taskcreate", to: "tasks#taskcreate", as: "taskcreate"
-  get "admins/employee/target", to: "admins#employeetarget"
-  get "admins/employee/payroll", to: "admins#payroll"
-  get "admins/projects", to: "projects#index"
   post "salarycreate", to: "salaries#salarycreate", as: "salarycreate"
   patch "salaryupdate", to: "salaries#salaryupdate", as: "salaryupdate"
   post "projectcreate", to: "projects#create", as: "projectcreate"

@@ -12,6 +12,9 @@
       <div class="w-full">
         <%= form.label :leavetype, class: "block mb-1" %>
         <%= form.select :leavetype, options_for_select(['sick', 'casual']), {}, class: "select w-full" %>
+       <% if @leave.errors[:subject].any? %>
+        <p class="text-red-500">error messages</p>
+       <%end%>
       </div>
 
       <div class="w-full">

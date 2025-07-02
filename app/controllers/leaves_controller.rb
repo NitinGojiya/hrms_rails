@@ -10,8 +10,8 @@ class LeavesController < ApplicationController
     if @leave.save
       redirect_to root_path, notice: "Leave application submitted successfully."
     else
-      flash[:alert] = "There was an error submitting your leave."
-      redirect_to root_path # Or re-render index if needed
+      flash[:alert] = "There was an error submitting your leave.#{@leave.errors.full_messages.each}"
+      redirect_to "/" # Or re-render index if needed
     end
   end
 
