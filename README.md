@@ -22,3 +22,4 @@ Things you may want to cover:
 * Deployment instructions
 
 * ...
+![Screenshot of the application](app/assets/images/bluback.png)
