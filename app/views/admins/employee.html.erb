@@ -2,9 +2,17 @@
     <div><%=render 'shared/admin'%></div>
     <div>
           <!-- Main Content Area -->
+          <main class="mt-8">
+                <div class="bg-white rounded-lg shadow-md p-6 flex justify-end">
+                  <h1 class="text-2xl font-bold text-gray-800 mb-4"></h1>
+                  <button class="btn btn-success">New Employee</button>
+                  <p class="text-gray-600"></p>
+              </div>
+          </main>
     <main class="mt-8">
         <%=render 'employeedata'%>
     </main>
+
 
     <main class="mt-8">
         <%=render 'employeerecord'%>
