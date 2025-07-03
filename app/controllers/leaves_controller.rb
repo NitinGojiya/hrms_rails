@@ -16,7 +16,7 @@ class LeavesController < ApplicationController
   end
 
   def accept
-    leave = Leafe.find(params[:id])
+    leave = Leave.find(params[:id])
     case params[:decision]
     when "approve"
       leave.update(status: "accept")
@@ -33,6 +33,6 @@ class LeavesController < ApplicationController
     @user = @session.user
   end
   def leave_params
-    params.require(:leafe).permit(:leavetype, :start_date, :end_date, :subject, :description)
+    params.require(:leave).permit(:leavetype, :start_date, :end_date, :subject, :description)
   end
 end

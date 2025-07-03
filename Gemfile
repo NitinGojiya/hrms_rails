@@ -67,3 +67,5 @@ gem "tailwindcss-rails", "~> 4.2"
 gem "cancancan"
 
 gem "sqlite3", "~> 2.7"
+
+gem "devise", "~> 4.9"

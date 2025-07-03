@@ -1,4 +1,4 @@
-class Leafe < ApplicationRecord
+class Leave < ApplicationRecord
   belongs_to :user
 
   # scope

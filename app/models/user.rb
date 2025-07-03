@@ -9,7 +9,7 @@ class User < ApplicationRecord
   # has_many :projects, dependent: :destroy
   has_many :tasks, through: :projects
   has_many :assigned_tasks, class_name: "Task", foreign_key: "assigned_user_id"
-  has_many :leaves, class_name: "Leafe"
+  has_many :leaves, class_name: "Leave"
   has_one_attached :profile_photo
   # validatation
   normalizes :email_address, with: ->(e) { e.strip.downcase }

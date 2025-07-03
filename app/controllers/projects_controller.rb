@@ -3,7 +3,7 @@ class ProjectsController < ApplicationController
   before_action :require_admin!
   def index
     @user = Current.session.user
-    @leaves_pending = Leafe.pending
+    @leaves_pending = Leave.pending
     @task = Task.new
     @projects = Project.all
     @project = Project.new
