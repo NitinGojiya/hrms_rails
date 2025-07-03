@@ -1,6 +1,6 @@
 class AdminsController < ApplicationController
   include Authentication
-  before_action :require_admin!
+  # before_action :require_admin!
   # dashboard for admin "/admins/dashboard"
   def index
     common_object
@@ -43,6 +43,6 @@ class AdminsController < ApplicationController
       @user = Current.session.user
       @leaves_accept = Leave.accept.order(updated_at: :desc)
       @leaves = Leave.all.order(updated_at: :desc)
-      @employees = User.where(role: 0).order(created_at: :desc)
+     @employees = User.with_role(:user).order(created_at: :desc)
     end
 end

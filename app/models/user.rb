@@ -1,4 +1,6 @@
 class User < ApplicationRecord
+  rolify before_add: :before_add_method
+
   has_secure_password
 
   scope :admin, -> { where(role: 1) }
@@ -30,5 +32,9 @@ class User < ApplicationRecord
     else
       self.username = "user_#{SecureRandom.hex(4)}"
     end
+  end
+
+  def before_add_method(role)
+   self.add_role(:newuser) if self.roles.blank?
   end
 end

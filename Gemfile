@@ -69,3 +69,5 @@ gem "cancancan"
 gem "sqlite3", "~> 2.7"
 
 gem "devise", "~> 4.9"
+
+gem "rolify", "~> 6.0"
