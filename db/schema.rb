@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[8.0].define(version: 2025_06_23_072728) do
+ActiveRecord::Schema[8.0].define(version: 2025_07_03_053437) do
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
     t.string "record_type", null: false
@@ -111,6 +111,18 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_23_072728) do
     t.datetime "updated_at", null: false
   end
 
+  create_table "salary_slips", force: :cascade do |t|
+    t.integer "basic_salary"
+    t.integer "user_id", null: false
+    t.integer "salary_id", null: false
+    t.integer "salary_rule_id", null: false
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["salary_id"], name: "index_salary_slips_on_salary_id"
+    t.index ["salary_rule_id"], name: "index_salary_slips_on_salary_rule_id"
+    t.index ["user_id"], name: "index_salary_slips_on_user_id"
+  end
+
   create_table "sessions", force: :cascade do |t|
     t.integer "user_id", null: false
     t.string "ip_address"
@@ -140,6 +152,7 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_23_072728) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.integer "role", default: 0, null: false
+    t.string "username"
     t.index ["email_address"], name: "index_users_on_email_address", unique: true
   end
 
@@ -148,6 +161,9 @@ ActiveRecord::Schema[8.0].define(version: 2025_06_23_072728) do
   add_foreign_key "leaves", "users"
   add_foreign_key "profiles", "users"
   add_foreign_key "salaries", "users"
+  add_foreign_key "salary_slips", "salaries"
+  add_foreign_key "salary_slips", "salary_rules"
+  add_foreign_key "salary_slips", "users"
   add_foreign_key "sessions", "users"
   add_foreign_key "tasks", "projects"
   add_foreign_key "tasks", "users", column: "assigned_user_id"
