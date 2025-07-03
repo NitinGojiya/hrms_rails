@@ -6,21 +6,26 @@ class SessionsController < ApplicationController
   end
 
   def create
-  user_params = params.permit(:email_address, :password)
+    user = User.authenticate_by(email_address: user_params[:email_address], password: user_params[:password]) ||
+          User.authenticate_by(username: user_params[:username], password: user_params[:password])
 
-  user = User.authenticate_by(email_address: user_params[:email_address], password: user_params[:password]) ||
-        User.authenticate_by(username: user_params[:email_address], password: user_params[:password])
-
-  if user
-    start_new_session_for user
-    redirect_to after_authentication_url
-  else
-    redirect_to new_session_path, alert: "Try another email address or password."
-  end
+    if user
+      start_new_session_for user
+      redirect_to after_authentication_url
+    else
+      redirect_to new_session_path, alert: "Try another email address or password."
+    end
   end
 
   def destroy
     terminate_session
     redirect_to new_session_path
+  end
+
+  private
+  def user_params
+    permitted = params.permit(:email_address, :password)
+    permitted[:username] = permitted[:email_address]
+    permitted
   end
 end

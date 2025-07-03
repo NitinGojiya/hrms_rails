@@ -3,9 +3,6 @@ class User < ApplicationRecord
 
   has_secure_password
 
-  scope :admin, -> { where(role: 1) }
-  scope :user, -> { where(role: 0) }
-  # enum :role, [ :user, :admin ]
   has_many :sessions, dependent: :destroy
   has_one :profile, dependent: :destroy
   has_one :salary, dependent: :destroy
@@ -27,14 +24,10 @@ class User < ApplicationRecord
   end
 
   def method_to_set_username
-    if email_address.present?
       self.username = email_address.split("@").first + rand(100).to_s
-    else
-      self.username = "user_#{SecureRandom.hex(4)}"
-    end
   end
 
   def before_add_method(role)
-   self.add_role(:newuser) if self.roles.blank?
+   self.add_role(:user) if self.roles.blank?
   end
 end
